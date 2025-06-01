@@ -7,7 +7,7 @@ title = Carbonify
 package.name = carbonify
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.carbonkivy.carbonify
+package.domain = org.carbonkivy
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -104,7 +104,7 @@ android.permissions = android.permission.INTERNET, android.permission.ACCESS_NET
 android.api = 35
 
 # (int) Minimum API your APK / AAB will support.
-android.minapi = 21
+android.minapi = 23
 
 # (int) Android SDK version to use
 #android.sdk = 20
