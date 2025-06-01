@@ -1,0 +1,37 @@
+<ColorScreenView>:
+    ColorView:
+        size_hint: 1, 1
+        viewclass: "MyColor"
+        bar_width: "20dp"
+        do_scroll_x: False
+        scroll_type: ['bars', 'content']
+
+        RecycleGridLayout:
+            cols: 2
+            default_size: None, dp(200)
+            default_size_hint: 1, None
+            size_hint: 1, None
+            height: self.minimum_height
+            padding: [dp(16), dp(16), dp(16), dp(16)]
+            spacing: dp(20)
+
+    StackLayout:
+        size_hint: 1, 1
+
+        CButtonGhost:
+            icon: "arrow--left"
+            on_press:
+                app.referrer("home screen")
+
+<MyColor@CAnchorLayout>:
+    anchor_y: 'bottom'
+    size_hint: 1, None
+    height: dp(200)
+    token: ""
+    padding: dp(16)
+
+    CLabel:
+        text: root.token
+        padding: dp(4)
+        bg_color: [1, 1, 1, 0.6]
+        color: app.text_primary

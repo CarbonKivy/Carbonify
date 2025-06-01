@@ -1,0 +1,57 @@
+<HomeScreenView>:
+    StackLayout:
+        size_hint: 1, 1
+        padding: dp(16)
+        spacing: dp(16)
+
+        CBoxLayout:
+            orientation: "horizontal"
+            adaptive: [False, True]
+
+            AsyncImage:
+                source: "assets/images/carbonkivy_logo128.png"
+                size_hint: None, None
+                size: dp(48), dp(48)
+
+        ScrollView:
+
+            CBoxLayout:
+                orientation: "vertical"
+                adaptive: [False, True]
+                padding: dp(16)
+                spacing: dp(8)
+
+                Tile:
+                    source: "assets/images/admob.png"
+                    header: "Google Ads - Admob"
+                    name_screen: "admob screen"
+
+                Tile:
+                    source: "assets/images/colors.png"
+                    header: "Color"
+                    name_screen: "color screen"
+
+                Tile:
+                    source: "assets/images/buttons.png"
+                    header: "Button"
+                    name_screen: "button screen"
+
+                Tile:
+                    source: "assets/images/icons.png"
+                    header: "Icons"
+                    name_screen: "icon screen"
+
+                Tile:
+                    source: "assets/images/textinputs.png"
+                    header: "Text inputs"
+                    name_screen: "textinput screen"
+
+                Tile:
+                    source: "assets/images/links.png"
+                    header: "Link"
+                    name_screen: "link screen"
+
+                Widget:
+                    size_hint: 1, None
+                    height: dp(70)
+

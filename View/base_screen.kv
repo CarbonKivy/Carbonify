@@ -1,0 +1,30 @@
+<BaseScreenView>:
+
+<Tile>:
+    orientation: "vertical"
+    size_hint_x: 1
+    adaptive: [False, True]
+    bg_color: app.layer_01
+    inset_width: 0
+    line_width: dp(0.5)
+    padding: dp(16)
+    spacing: dp(12)
+    line_color_focus: app.focus
+
+    CImage:
+        size_hint: 1, None
+        ratio: [16, 9]
+        fit_mode: "cover"
+        source: root.source
+
+    CLabel:
+        text: root.header
+        style: "heading_04"
+        color: app.text_primary
+
+
+    CButtonPrimary:
+        text: "View"
+        icon: "arrow--right"
+        on_press:
+            app.referrer(root.name_screen)

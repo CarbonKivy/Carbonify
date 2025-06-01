@@ -1,0 +1,15 @@
+<CircularLoader>:
+    canvas:
+        PushMatrix
+        Rotate:
+            angle: self.angle
+            origin: self.center
+        Color:
+            rgba: app.interactive
+        Line:
+            circle: self.center_x, self.center_y, min(self.size)/2.5, 0, 300
+            width: 3
+            cap: "none"
+        PopMatrix
+
+

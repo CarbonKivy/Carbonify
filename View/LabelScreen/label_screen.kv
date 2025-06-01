@@ -1,0 +1,34 @@
+<LabelScreenView>:
+
+    CLabel:
+        text: "IBM Plex Sans"
+        style: "heading_04"
+        typeface: "IBM Plex Sans"
+        weight_style: "Medium"
+        halign: "center"
+        pos_hint: {"center_y": 0.8}
+
+    CLabel:
+        text: "IBM Plex Serif"
+        style: "heading_04"
+        typeface: "IBM Plex Serif"
+        weight_style: "Medium"
+        halign: "center"
+        pos_hint: {"center_y": 0.5}
+
+    CLabel:
+        text: "IBM Plex Mono"
+        style: "heading_04"
+        typeface: "IBM Plex Mono"
+        weight_style: "Medium"
+        halign: "center"
+        pos_hint: {"center_y": 0.2}
+
+    StackLayout:
+        size_hint: 1, 1
+
+        CButtonGhost:
+            icon: "arrow--left"
+            on_press:
+                app.referrer("home screen")
+

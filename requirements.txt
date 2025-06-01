@@ -1,0 +1,4 @@
+kivy>=2.0.0
+carbonkivy==0.0.3
+watchdog>=4.0.1
+pillow>=10.0.0

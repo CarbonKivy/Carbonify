@@ -1,0 +1,54 @@
+<IconScreenView>:
+
+    CLabel:
+        text: f"{root.icon_count} glyphs"
+        color: app.text_primary
+        style: "heading_04"
+        padding: dp(8)
+        pos_hint: {"top": 0.92}
+
+    IconView:
+        size_hint: 1, 0.9
+        viewclass: "MyIcon"
+        bar_width: "20dp"
+        do_scroll_x: False
+        scroll_type: ['bars', 'content']
+        RecycleGridLayout:
+            cols: 2
+            default_size: None, dp(200)
+            default_size_hint: 1, None
+            size_hint: 1, None
+            height: self.minimum_height
+            padding: [dp(16), dp(16), dp(16), dp(16)]
+            spacing: dp(20)
+
+    StackLayout:
+        size_hint: 1, 1
+
+        CButtonGhost:
+            icon: "arrow--left"
+            on_press:
+                app.referrer("home screen")
+
+<MyIcon@CAnchorLayout>:
+    anchor_x: 'center'
+    anchor_y: 'center'
+    size_hint: 1, None
+    height: dp(200)
+    text: ""
+    icon: ""
+
+    CBoxLayout:
+        spacing: "20dp"
+        orientation: "vertical"
+        adaptive: [False, True]
+
+        CIcon:
+            multiline: True
+            icon: root.icon
+            font_size: plex_32
+            pos_hint: {'center_x': 0.5}
+
+        CLabel:
+            text: root.text
+            halign: "center"

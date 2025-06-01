@@ -1,0 +1,63 @@
+<LinkScreenView>:
+    CBoxLayout:
+        orientation: "vertical"
+        padding: dp(16)
+        spacing: dp(128)
+        adaptive: [True, True]
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        CLink:
+            url: "https://github.com/CarbonKivy/CarbonKivy"
+            external: True
+            pos_hint: {"center_y": 0.6}
+
+            CLinkText:
+                text: "Standalone Link"
+
+            CLinkIcon:
+                icon: "arrow--up-right"
+
+        CLink:
+            url: "https://github.com/CarbonKivy/CarbonKivy"
+            external: True
+            cstate: "visited"
+            pos_hint: {"center_y": 0.6}
+
+            CLinkText:
+                text: "Standalone Link Visited"
+
+            CLinkIcon:
+                icon: "arrow--up-right"
+
+        CLink:
+            url: "https://github.com/CarbonKivy/CarbonKivy"
+            external: True
+            cstate: "active"
+            pos_hint: {"center_y": 0.6}
+
+            CLinkText:
+                text: "Standalone Link Active"
+
+            CLinkIcon:
+                icon: "arrow--up-right"
+
+        CLink:
+            url: "https://github.com/CarbonKivy/CarbonKivy"
+            external: True
+            cstate: "disabled"
+            pos_hint: {"center_y": 0.6}
+
+            CLinkText:
+                text: "Standalone Link Disabled"
+
+            CLinkIcon:
+                icon: "arrow--up-right"
+
+    StackLayout:
+        size_hint: 1, 1
+
+        CButtonGhost:
+            icon: "arrow--left"
+            on_press:
+                app.referrer("home screen")
+

@@ -1,0 +1,28 @@
+<TextinputScreenView>:
+
+    CTextInputLayout:
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        size_hint_x: None
+        width: dp(250)
+
+        CTextInput:
+            hint_text: "Placeholder text"
+
+        CTextInputLabel:
+            text: "Label text"
+
+        CTextInputHelperText:
+            text: "Helper text"
+
+        CTextInputTrailingIconButton:
+            icon: "error"
+            spacing: 0
+
+    StackLayout:
+        size_hint: 1, 1
+
+        CButtonGhost:
+            icon: "arrow--left"
+            on_press:
+                app.referrer("home screen")
+
