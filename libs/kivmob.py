@@ -425,7 +425,7 @@ class AndroidBridge(AdMobBridge):
             AndroidString = autoclass('java.lang.String')
             Toast = autoclass('android.widget.Toast')
             duration = Toast.LENGTH_LONG
-            text = 'Ads not loaded yet... Please try again after pressing the "load Ads" button.'
+            text = 'Ads not loaded yet... Please try again!'
             text_char_sequence = cast('java.lang.CharSequence', AndroidString(text))
             toast = Toast.makeText(self.context, text_char_sequence, duration)
             toast.show()
