@@ -50,3 +50,11 @@ class AdmobScreenView(BaseScreenView):
                 self.app.ads.show_interstitial()
             except Exception: # nosec
                 pass
+
+    def on_leave(self, *args) -> None:
+        if platform == 'android':
+
+            try:
+                self.app.ads.hide_banner()
+            except Exception: # nosec
+                pass
