@@ -14,10 +14,17 @@ if platform == 'android':
         def on_rewarded(self, *args) -> None:
             App.get_running_app().ads.load_rewarded_ad(TestIds.REWARDED_VIDEO)
 
+
 class AdmobScreenView(BaseScreenView):
 
     def __init__(self, *args, **kwargs) -> None:
         super(AdmobScreenView, self).__init__(*args, **kwargs)
+        if platform == 'android':
+            try:
+                self.app.ads.load_interstitial(TestIds.INTERSTITIAL)
+            except Exception: # nosec
+                pass
+
 
     def on_pre_enter(self, *args) -> None:
         if platform == 'android':
@@ -31,12 +38,6 @@ class AdmobScreenView(BaseScreenView):
             except Exception: # nosec
                 pass
 
-            try:
-                self.app.ads.load_rewarded_ad(TestIds.REWARDED_VIDEO)
-                self.ads.set_rewarded_ad_listener(RewardsHandler())
-            except Exception: # nosec
-                pass
-
     def on_enter(self, *args) -> None:
         if platform == 'android':
 
@@ -47,10 +48,5 @@ class AdmobScreenView(BaseScreenView):
 
             try:
                 self.app.ads.show_interstitial()
-            except Exception: # nosec
-                pass
-
-            try:
-                self.app.ads.show_rewarded_ad()
             except Exception: # nosec
                 pass
