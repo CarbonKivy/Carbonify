@@ -1,0 +1,188 @@
+<ProductScreenView>:
+    CStackLayout:
+        size_hint: 1, 1
+
+        CRelativeLayout:
+            id: imagelayout
+            size_hint: 1, None
+            height: productimage.height
+
+            CImage:
+                id: productimage
+                source: "assets/images/nikeshoes.png"
+                ratio: [1, 1]
+                fit_mode: "cover"
+
+            CBoxLayout:
+                orientation: "vertical"
+                adaptive: [False, True]
+                padding: [dp(16), dp(16), dp(16), dp(16)]
+                pos_hint: {"top": 1}
+
+                CButtonGhost:
+                    icon: "arrow--left"
+                    spacing: 0
+                    text_color: app.text_primary
+                    on_press:
+                        app.referrer("home screen")
+
+        CBoxLayout:
+            size_hint: 1, None
+            height: root.height - productimage.height
+
+            CScrollView:
+                InfoLayout:
+                    orientation: "vertical"
+                    adaptive: [False, True]
+                    padding: [dp(16), dp(8), dp(16), dp(8)]
+                    spacing: dp(12)
+
+<InfoLayout@CBoxLayout>:
+    CBoxLayout:
+        adaptive: [False, True]
+
+        CLabel:
+            text: "Nike Quest 6"
+            style: "heading_05"
+            color: app.text_primary
+            pos_hint: {"center_y": 0.5}
+
+        CButtonGhost:
+            icon: "favorite"
+            spacing: 0
+            pos_hint: {"center_y": 0.5}
+            text_color: app.text_primary
+
+    CBoxLayout:
+        adaptive: [False, True]
+        spacing: dp(16)
+
+        CLabel:
+            text: "423 SOLD "
+            style: "body_compact_01"
+            size_hint_x: None
+            width: self.texture_size[0]
+            text_size: None, self.texture_size[1]
+            bg_color: app.layer_01
+            padding: dp(8)
+            pos_hint: {"center_y": 0.5}
+
+        CIcon:
+            icon: "star--filled"
+            color: app.text_primary
+            pos_hint: {"center_y": 0.5}
+
+        CLabel:
+            text: "4.3"
+            size_hint_x: None
+            width: self.texture_size[0]
+            text_size: None, self.texture_size[1]
+            pos_hint: {"center_y": 0.5}
+
+        CLabel:
+            text: "153 reviews"
+            pos_hint: {"center_y": 0.5}
+
+    CDivider:
+
+    CLabel:
+        text: "Description"
+        style: "heading_03"
+        color: app.text_primary
+
+    CLabel:
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        style: "body_01"
+
+    GridLayout:
+        cols: 2
+        size_hint: 1, None
+        height: self.minimum_height
+        spacing: dp(8)
+        
+        CBoxLayout:
+            orientation: "vertical"
+            adaptive: [False, True]
+            spacing: dp(8)
+
+            CLabel:
+                text: "Size"
+                style: "heading_03"
+                color: app.text_primary
+
+            CBoxLayout:
+                adaptive: [True, True]
+
+                CIconCircular:
+                    icon: "number--7"
+                    font_size: plex_48
+                    radius: self.height/2
+
+                CIconCircular:
+                    icon: "number--8"
+                    color: app.text_on_color
+                    font_size: plex_48
+                    radius: self.height/2
+                    bg_color: app.layer_selected_inverse
+
+                CIconCircular:
+                    icon: "number--9"
+                    font_size: plex_48
+                    radius: self.height/2
+
+        CBoxLayout:
+            orientation: "vertical"
+            adaptive: [False, True]
+            spacing: dp(8)
+
+            CLabel:
+                text: "Color"
+                style: "heading_03"
+                color: app.text_primary
+
+            CBoxLayout:
+                adaptive: [True, True]
+
+                CIconCircular:
+                    bg_color: app.blue_60
+                    size: dp(48), dp(48)
+                    radius: self.height/2
+
+                CIconCircular:
+                    bg_color: app.gray_100
+                    color: app.text_on_color
+                    line_color: app.focus
+                    size: dp(48), dp(48)
+                    radius: self.height/2
+
+                CIconCircular:
+                    bg_color: app.yellow_30
+                    size: dp(48), dp(48)
+                    radius: self.height/2
+
+    CDivider:
+
+    CBoxLayout:
+        adaptive: [False, True]
+
+        CBoxLayout:
+            orientation: "vertical"
+            adaptive: [False, True]
+
+            CLabel:
+                text: "TOTAL PRICE"
+                style: "body_compact_02"
+            
+            CLabel:
+                text: "$690"
+                style: "heading_04"
+                color: app.text_primary
+        
+        CButtonSecondary:
+            text: "ADD TO CART"
+            icon: "shopping--cart"
+            role: "Large Productive"
+
+    Widget:
+        size_hint: 1, None
+        height: dp(150)

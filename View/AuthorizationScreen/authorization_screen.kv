@@ -1,0 +1,105 @@
+<AuthorizationScreenView>:
+    CStackLayout:
+        size_hint: 1, 1
+        spacing: dp(10)
+        padding: [dp(10), dp(10), dp(10), dp(10)]
+
+        CBoxLayout:
+            orientation: "horizontal"
+            adaptive: [False, True]
+            
+            CButtonGhost:
+                icon: "arrow--left"
+                spacing: 0
+                on_press:
+                    app.referrer("home screen")
+
+        CScrollView:
+            LoginBoxLayout:
+
+<LoginBoxLayout@CBoxLayout>:
+    orientation: "vertical"
+    padding: [dp(16), dp(16), dp(16), dp(16)]
+    adaptive: [False, True]
+    spacing: dp(48)
+
+    CLabel:
+        text: "Login"
+        style: "heading_06"
+        halign: "center"
+        color: app.text_primary
+
+    CBoxLayout:
+        orientation: "vertical"
+        spacing: dp(64)
+        adaptive: [False, True]
+
+        CTextInputLayout:
+            CTextInput:
+                hint_text: "Enter your username"
+            CTextInputLabel:
+                text: "Username"
+            CTextInputHelperText:
+                text: "Maximum 10 characters"
+
+        
+        CTextInputLayout:
+
+            CTextInput:
+                id: pwd_input
+                hint_text: "Enter your password"
+                password: True
+            CTextInputLabel:
+                text: "Password"
+            CTextInputHelperText:
+                text: "Minimum 8 characters"
+            CTextInputTrailingIconButton:
+                icon: "view--off" if pwd_input.password else "view"
+                on_press:
+                    pwd_input.password = (not pwd_input.password)
+
+    CBoxLayout:
+        spacing: dp(3)
+        adaptive: [False, True]
+
+        CButtonPrimary:
+            text: "Login"
+            icon: "login"
+            role: "Large Productive"
+            size_hint_x: 0.5
+
+        CButtonSecondary:
+            text: "Signup"
+            icon: "user--profile"
+            role: "Large Productive"
+            size_hint_x: 0.5
+
+    CDivider:
+
+    CLabel:
+        text: "or continue with..."
+        style: "body_compact_02"
+        halign: "center"
+        adaptive: [False, True]
+
+    GridLayout:
+        cols:2
+        size_hint: 1, None
+        height: self.minimum_height
+
+        AnchorLayout:
+
+            CButtonGhost:
+                font_size: plex_48
+                text_color: app.text_primary
+                icon: "logo--github"
+                role: "2XL"
+                spacing: 0
+
+        AnchorLayout:
+
+            CButtonGhost:
+                font_size: plex_48
+                icon: "logo--facebook"
+                role: "2XL"
+                spacing: 0

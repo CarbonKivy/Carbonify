@@ -1,6 +1,7 @@
 """
-Author: SK Sahil
-    https://github.com/Sahil-pixel
+Author:
+    Modification by SK Sahil for compatibility with latest API.
+        https://github.com/Sahil-pixel
 """
 
 from kivy.core.window import Window
@@ -12,7 +13,7 @@ from kivy.utils import platform
 if platform == "android":
     try:
         from jnius import autoclass, cast, PythonJavaClass, java_method
-        from android.runnable import run_on_ui_thread
+        from android.runnable import run_on_ui_thread # type: ignore
 
         activity = autoclass("org.kivy.android.PythonActivity")
 
@@ -381,7 +382,7 @@ class AndroidBridge(AdMobBridge):
     #    return self._loaded
 
     @run_on_ui_thread
-    def show_interstitial(self):
+    def show_interstitial(self, *args):
         if self.interstitialAdLoadCallback4kivy.mInterstitialAd is not None:
             self.interstitialAdLoadCallback4kivy.mInterstitialAd.show(activity.mActivity)
         else:
@@ -389,7 +390,7 @@ class AndroidBridge(AdMobBridge):
             AndroidString = autoclass('java.lang.String')
             Toast = autoclass('android.widget.Toast')
             duration = Toast.LENGTH_LONG
-            text = 'Ads not loaded yet... Please try again after pressing the "load Ads" button.'
+            text = 'Ads not loaded yet... Please try again!'
             text_char_sequence = cast('java.lang.CharSequence', AndroidString(text))
             toast = Toast.makeText(self.context, text_char_sequence, duration)
             toast.show()
@@ -417,7 +418,7 @@ class AndroidBridge(AdMobBridge):
             self.rewardedAdLoadCallback4kivy)
 
     @run_on_ui_thread
-    def show_rewarded_ad(self):
+    def show_rewarded_ad(self, *args):
         if self.rewardedAdLoadCallback4kivy.mRewardedAd != None:
             self.rewardedAdLoadCallback4kivy.mRewardedAd.show(activity.mActivity, self._listener)
         else:

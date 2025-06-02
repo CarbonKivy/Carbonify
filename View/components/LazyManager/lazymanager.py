@@ -1,7 +1,7 @@
 import glob
 import os
 
-from kivy.clock import Clock, mainthread
+from kivy.clock import Clock
 from kivy.lang import Builder
 from kivy.properties import DictProperty, ListProperty, ObjectProperty
 
@@ -58,8 +58,11 @@ class LazyManager(CScreenManager):
             self.add_widget(view)
             self.upstream_views.extend(name_screen)
         else:
-            switch()
-            return
+            if not preload:
+                switch()
+                return
+            else:
+                return
 
         if not preload:
             # Show the loading layout while the screen is being loaded
@@ -72,15 +75,21 @@ class LazyManager(CScreenManager):
         Display the loading layout on the current screen.
         """
         self.loader_screen = self.current_screen
-        self.loader_screen.add_widget(self.loading_layout)
-        self.loading_layout.display()
+        try:
+            self.loader_screen.add_widget(self.loading_layout)
+            self.loading_layout.display()
+        except Exception: # nosec
+            pass
 
     def dismiss_loader(self, *args) -> None:
         """
         Remove the loading layout from the current screen.
         """
-        self.loader_screen.remove_widget(self.loading_layout)
-        self.loading_layout.dismiss()
+        try:
+            self.loader_screen.remove_widget(self.loading_layout)
+            self.loading_layout.dismiss()
+        except Exception: # nosec
+            pass
 
     def _load_basic_kvlang_files(self, *args) -> None:
         """

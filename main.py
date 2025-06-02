@@ -5,8 +5,11 @@ import webbrowser
 
 from kivy.clock import Clock
 from kivy.core.window import Window
+
 from carbonkivy.app import CarbonApp
+from carbonkivy.utils import update_system_ui
 # from carbonkivy.uix.screenmanager import CScreenManager
+
 from View.components.LazyManager import LazyManager
 from View.components.LoadingLayout import LoadingLayout
 from View.screens import screens
@@ -21,7 +24,17 @@ Window.on_restore(Clock.schedule_once(set_softinput, 0.1))
 
 from kivy.utils import platform
 if platform == 'android':
-    from libs.kivmob import KivMob, TestIds
+    from libs.kivmob import KivMob, TestIds, RewardedListenerInterface
+
+
+class RewardsHandler(RewardedListenerInterface):
+
+    def __init__(self, *args, **kwargs) -> None:
+        super(RewardsHandler, self).__init__(*args, **kwargs)
+
+    def on_rewarded(self, *args) -> None:
+        CarbonApp.get_running_app().ads.load_rewarded_ad(TestIds.REWARDED_VIDEO)
+
 
 class UI(LazyManager):
     def __init__(self, *args, **kwargs):
@@ -40,6 +53,8 @@ class Carbonify(CarbonApp):
         if platform == 'android':
             self.ads = KivMob(TestIds.APP)
             self.ads.new_banner(TestIds.BANNER,top_pos=False)
+            self.ads.load_interstitial(TestIds.INTERSTITIAL)
+            self.ads.set_rewarded_ad_listener(RewardsHandler())
         # self.generate_application_screens()
         self.manager_screens.switch("home screen")
         self.apply_styles()
@@ -56,6 +71,7 @@ class Carbonify(CarbonApp):
 
     def apply_styles(self, style: str = "White") -> None:
         self.theme = style
+        update_system_ui(self.background, self.background, "Dark")
 
     def referrer(self, destination: str = None) -> None:
         if self.manager_screens.current != destination:
@@ -66,4 +82,5 @@ class Carbonify(CarbonApp):
 
 
 if __name__ == "__main__":
-    Carbonify().run()
+    app = Carbonify()
+    app.run()

@@ -2,8 +2,28 @@
     StackLayout:
         size_hint: 1, 1
 
-        CButtonGhost:
-            icon: "arrow--left"
-            on_press:
-                app.referrer("home screen")
+        CBoxLayout:
+            adaptive: [False, True]
 
+            CButtonGhost:
+                icon: "arrow--left"
+                on_press:
+                    app.referrer("home screen")
+
+        CBoxLayout:
+            orientation: "vertical"
+            adaptive: [False, True]
+            padding: dp(16)
+            spacing: dp(12)
+
+            CButtonGhost:
+                text: "View Interstitial Ads"
+                icon: "popup"
+                on_press:
+                    root.refresh_ads("interstitial")
+
+            CButtonGhost:
+                text: "View Rewarded Ads"
+                icon: "popup"
+                on_press:
+                    root.refresh_ads("rewarded")

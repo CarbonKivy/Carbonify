@@ -8,6 +8,9 @@ from View.LabelScreen.label_screen import LabelScreenView
 from View.GridScreen.grid_screen import GridScreenView
 from View.HomeScreen.home_screen import HomeScreenView
 from View.AdmobScreen.admob_screen import AdmobScreenView
+from View.ProductScreen.product_screen import ProductScreenView
+from View.PortfolioScreen.portfolio_screen import PortfolioScreenView
+from View.AuthorizationScreen.authorization_screen import AuthorizationScreenView
 
 screens = {
     'home screen': {
@@ -49,5 +52,17 @@ screens = {
     'admob screen': {
         'object': AdmobScreenView,
         'module': 'View.AdmobScreen'
+    },
+    'product screen': {
+        'object': ProductScreenView,
+        'module': 'View.ProductScreen'
+    },
+    'portfolio screen': {
+        'object': PortfolioScreenView,
+        'module': 'View.PortfolioScreen'
+    },
+    'authorization screen': {
+        'object': AuthorizationScreenView,
+        'module': 'View.AuthorizationScreen'
     },
 }
