@@ -21,13 +21,8 @@ class AdmobScreenView(BaseScreenView):
 
     def on_pre_enter(self, *args) -> None:
         if platform == 'android':
-            self.app.ads.request_banner()
-
-    def on_enter(self, *args) -> None:
-        if platform == 'android':
-
             try:
-                self.app.ads.show_banner()
+                self.app.ads.request_banner()
             except Exception: # nosec
                 pass
 
@@ -39,5 +34,23 @@ class AdmobScreenView(BaseScreenView):
             try:
                 self.app.ads.load_rewarded_ad(TestIds.REWARDED_VIDEO)
                 self.ads.set_rewarded_ad_listener(RewardsHandler())
+            except Exception: # nosec
+                pass
+
+    def on_enter(self, *args) -> None:
+        if platform == 'android':
+
+            try:
+                self.app.ads.show_banner()
+            except Exception: # nosec
+                pass
+
+            try:
+                self.app.ads.show_interstitial()
+            except Exception: # nosec
+                pass
+
+            try:
+                self.app.ads.show_rewarded_ad()
             except Exception: # nosec
                 pass
