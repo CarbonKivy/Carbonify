@@ -8,7 +8,7 @@ class ProductScreenView(BaseScreenView):
         super(ProductScreenView, self).__init__(*args, **kwargs)
 
     def on_enter(self, *args):
-        update_system_ui(self.layer_01, self.background, "Dark")
+        update_system_ui(self.app.layer_01, self.app.background, "Dark")
 
     def on_leave(self, *args):
         self.app.apply_styles()
