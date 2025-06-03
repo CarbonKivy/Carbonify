@@ -26,14 +26,14 @@ from kivy.utils import platform
 if platform == 'android':
     from libs.kivmob import KivMob, TestIds, RewardedListenerInterface
 
-
-class RewardsHandler(RewardedListenerInterface):
-
-    def __init__(self, *args, **kwargs) -> None:
-        super(RewardsHandler, self).__init__(*args, **kwargs)
-
-    def on_rewarded(self, *args) -> None:
-        CarbonApp.get_running_app().ads.load_rewarded_ad(TestIds.REWARDED_VIDEO)
+    
+    class RewardsHandler(RewardedListenerInterface):
+    
+        def __init__(self, *args, **kwargs) -> None:
+            super(RewardsHandler, self).__init__(*args, **kwargs)
+    
+        def on_rewarded(self, *args) -> None:
+            CarbonApp.get_running_app().ads.load_rewarded_ad(TestIds.REWARDED_VIDEO)
 
 
 class UI(LazyManager):
@@ -79,6 +79,17 @@ class Carbonify(CarbonApp):
 
     def web_open(self, url: str) -> None:
         webbrowser.open_new_tab(url)
+
+    def on_start(self, *args) -> None:
+        Window.bind(on_keyboard=self.back_callback)
+
+    def back_callback(self, window: Window, key: int, *args) -> bool | None:
+        if key==27 or key==1001:
+            if self.manager_screens.current == "home screen":
+                quit()
+            else:
+                self.manager_screens.switch("home screen")
+                return True
 
 
 if __name__ == "__main__":
