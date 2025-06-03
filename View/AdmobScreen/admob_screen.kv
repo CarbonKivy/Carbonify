@@ -27,3 +27,28 @@
                 icon: "popup"
                 on_press:
                     root.refresh_ads("rewarded")
+
+            CBoxLayout:
+                orientation: "vertical"
+                bg_color: app.layer_01
+                padding: dp(16)
+                spacing: dp(16)
+                adaptive: [False, True]
+
+                AsyncImage:
+                    size_hint: 1, None
+                    fit_mode: "cover"
+                    source: "assets/images/opencollective.png"
+                    height: dp(150)
+
+                CLink:
+                    url: "https://opencollective.com/CarbonKivy/contribute"
+                    external: True
+                    role: "Large"
+                    pos_hint: {'center_x': 0.5}
+
+                    CLinkText:
+                        text: "Contribute"
+
+                    CLinkIcon:
+                        icon: "arrow--up-right"

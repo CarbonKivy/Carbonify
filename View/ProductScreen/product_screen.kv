@@ -7,11 +7,12 @@
             size_hint: 1, None
             height: productimage.height
 
-            CImage:
+            AsyncImage:
                 id: productimage
+                size_hint: 1, None
                 source: "assets/images/nikeshoes.png"
-                ratio: [1, 1]
                 fit_mode: "cover"
+                height: dp(250)
 
             CBoxLayout:
                 orientation: "vertical"

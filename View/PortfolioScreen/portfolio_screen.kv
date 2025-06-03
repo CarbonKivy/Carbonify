@@ -39,9 +39,12 @@
                 padding: [dp(10), dp(10), dp(10), dp(10)]
                 spacing: dp(15)
 
-                CImage:
+                AsyncImage:
                     id: image
                     source: "assets/images/carbondesignsystem512.png"
+                    size_hint: 1, None
+                    fit_mode: "cover"
+                    height: dp(200)
 
                 CLabel:
                     color: app.text_secondary
