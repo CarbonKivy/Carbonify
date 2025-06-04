@@ -1,5 +1,8 @@
 # Carbonify
+
 Demo Application showcasing CarbonKivy library widgets and latest Google Admob setup.
+
+![image](https://raw.githubusercontent.com/CarbonKivy/Carbonify/master/assets/images/carbonify.jpg)
 
 Please donate:
 
