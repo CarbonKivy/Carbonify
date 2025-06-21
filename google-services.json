@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "573498767942",
+    "project_id": "carbonify-13443",
+    "storage_bucket": "carbonify-13443.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573498767942:android:b5ed4c56de0a1fa572a847",
+        "android_client_info": {
+          "package_name": "org.carbonkivy.carbonify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq4VS0WU_u9t6n8CMJCwfzU3VwfbjZ3As"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      },
+      "admob_app_id": "ca-app-pub-3940256099942544~3347511713"
+    }
+  ],
+  "configuration_version": "1"
+}

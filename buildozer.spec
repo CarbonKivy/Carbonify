@@ -95,7 +95,12 @@ android.presplash_color = #FFFFFF
 
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
-android.permissions = android.permission.INTERNET, android.permission.ACCESS_NETWORK_STATE
+[app:android.permissions]
+android.permission.INTERNET
+android.permission.ACCESS_NETWORK_STATE
+android.permission.POST_NOTIFICATIONS
+android.permission.WAKE_LOCK
+android.permission.RECEIVE_BOOT_COMPLETED
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
@@ -151,7 +156,7 @@ android.accept_sdk_license = True
 
 # (str) Extra xml to write directly inside the <manifest><application> tag of AndroidManifest.xml
 # use that parameter to provide a filename from where to load your custom XML arguments:
-#android.extra_manifest_application_arguments = ./src/android/extra_manifest_application_arguments.xml
+android.extra_manifest_application_arguments = ./src/android/extra_manifest_application_arguments.xml
 
 # (str) Full name including package path of the Java class that implements Python Service
 # use that parameter to set custom Java class which extends PythonService
@@ -201,7 +206,15 @@ android.add_src = ./src
 #android.add_resources =
 
 # (list) Gradle dependencies to add
-android.gradle_dependencies = androidx.appcompat:appcompat:1.7.0, androidx.activity:activity:1.10.1, com.google.android.gms:play-services-ads:24.3.0
+[app:android.gradle_dependencies]
+# Google Admob
+androidx.appcompat:appcompat:1.7.0
+androidx.activity:activity:1.10.1
+com.google.android.gms:play-services-ads:24.3.0
+
+# Firebase Cloud Messaging
+com.google.firebase:firebase-messaging:23.4.1
+
 
 # (bool) Enable AndroidX support. Enable when 'android.gradle_dependencies'
 # contains an 'androidx' package, or any package from Kotlin source.
@@ -257,7 +270,7 @@ android.enable_androidx = True
 
 # (bool) Indicate whether the screen should stay on
 # Don't forget to add the WAKE_LOCK permission if you set this to True
-#android.wakelock = False
+android.wakelock = True
 
 # (list) Android application meta-data to set (key=value format)
 android.meta_data = com.google.android.gms.ads.APPLICATION_ID=ca-app-pub-3940256099942544~3347511713
