@@ -54,13 +54,13 @@ class AdmobScreenView(BaseScreenView):
                     self.app.ads.load_interstitial(TestIds.INTERSTITIAL)
                     Clock.schedule_once(
                         lambda e: self.app.ads.show_interstitial(),
-                        1
+                        2
                     )
                 elif type == "rewarded":
                     self.app.ads.load_rewarded_ad(TestIds.REWARDED_VIDEO)
                     Clock.schedule_once(
                         lambda e: self.app.ads.show_rewarded_ad(),
-                        1
+                        2
                     )
             except Exception: # nosec
                 pass

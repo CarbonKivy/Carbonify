@@ -86,12 +86,17 @@ class Carbonify(CarbonApp):
     def back_callback(self, window: Window, key: int, *args) -> bool | None:
         if key==27 or key==1001:
             if self.manager_screens.current == "home screen":
-                quit()
+                return
             else:
                 self.manager_screens.switch("home screen")
                 return True
 
 
 if __name__ == "__main__":
+    import os, sys
+    from kivy.resources import resource_add_path, resource_find
+
+    if hasattr(sys, "_MEIPASS"):
+        resource_add_path(resource_find(sys._MEIPASS))
     app = Carbonify()
     app.run()
