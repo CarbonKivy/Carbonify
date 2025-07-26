@@ -2,7 +2,7 @@
 
 Demo Application showcasing CarbonKivy library widgets and latest Google Admob setup.
 
-<!-- GitAds-Verify: O6P54NL21IJHSVFSU3F3HKSORVOUO5OL -->
+<!-- GitAds-Verify: OYJV17U4ZTABQHCZ31P47ONOI1HUWM8Q -->
 
 ![image](https://raw.githubusercontent.com/CarbonKivy/Carbonify/master/assets/images/carbonify.jpg)
 
